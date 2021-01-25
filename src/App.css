@@ -1,6 +1,55 @@
 /* Home Page */
+.home-content {
+  height: 100vh;
+  border: 1px solid green;
+}
+.home-seperation {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  height: 80%;
+}
+
+.home-right {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.home-left {
+  width: 48%;
+}
+.home-img {
+  border: 1px solid red;
+  height: 400px;
+}
+.home-foot {
+  background-color: lightslategray;
+  height: 15%;
+  padding: 20px;
+  margin: 25px;
+}
 
 /* Login/ Register */
+.register-container {
+  width: 70%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 50px auto;
+}
+
+.register-container input {
+  width: 80%;
+  margin: 0 auto;
+}
+#register {
+  margin: 10px;
+  width: 100px;
+}
 
 /* Welcome Account Config/Setup */
 
