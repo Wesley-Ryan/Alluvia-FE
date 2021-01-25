@@ -10,6 +10,7 @@ export default function App() {
   return (
     <div>
       <Form onSubmit={handleSubmit(onSubmit)} className="register-container">
+        <h2>Sign Up</h2>
         <Form.Control
           type="text"
           placeholder="first_name"

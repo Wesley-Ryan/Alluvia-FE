@@ -6,8 +6,6 @@
 .home-seperation {
   display: flex;
   justify-content: center;
-  padding: 20px;
-  height: 80%;
 }
 
 .home-right {
@@ -23,10 +21,7 @@
   height: 400px;
 }
 .home-foot {
-  background-color: lightslategray;
   height: 15%;
-  padding: 20px;
-  margin: 25px;
 }
 
 /* Login/ Register */
