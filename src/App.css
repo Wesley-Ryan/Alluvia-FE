@@ -1,0 +1,33 @@
+/* Home Page */
+
+/* Login/ Register */
+
+/* Welcome Account Config/Setup */
+
+/* Navigation */
+.styled-nav {
+  background-color: #b150e2;
+  color: whitesmoke;
+}
+
+.nav-text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+#nav-text {
+  color: whitesmoke;
+}
+#logo {
+  height: 85px;
+  margin: 0 50px 0 0;
+}
+
+/* Dashboard */
+
+/* Subscription Cards */
+
+/* Add Card Form */
+
+/* Edit User Account */
