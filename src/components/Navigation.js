@@ -10,20 +10,21 @@ const Navigation = () => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav className="nav-text">
           <Nav.Link id="nav-text" href="#home">
             Dashboard
           </Nav.Link>
-          <Nav.Link id="nav-text" href="#link">
+          <Nav.Link id="nav-text" href="#link" className="align-bottom">
             Account
           </Nav.Link>
+
+          <Navbar.Text id="nav-text">
+            Signed in as:{" "}
+            <a href="#login" id="nav-text">
+              First_Name Last_Name here
+            </a>
+          </Navbar.Text>
         </Nav>
-        <Navbar.Text id="nav-text">
-          Signed in as:{" "}
-          <a href="#login" id="nav-text">
-            First_Name Last_Name here
-          </a>
-        </Navbar.Text>
       </Navbar.Collapse>
     </Navbar>
   );
