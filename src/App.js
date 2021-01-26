@@ -1,11 +1,11 @@
 import Navigation from "./components/Navigation";
-import Hp from "./components/hp";
+import Homepage from "./components/Homepage";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Hp />
+      <Homepage />
       <header className="App-header"></header>
     </div>
   );

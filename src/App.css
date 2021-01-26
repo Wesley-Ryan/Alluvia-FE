@@ -1,7 +1,8 @@
 /* Home Page */
-.home-content {
-  height: 100vh;
-  border: 1px solid green;
+#home-content {
+  margin: 90px 50px 90px 50px;
+  height: 80vh;
+  border-radius: 10px;
 }
 .home-seperation {
   display: flex;
@@ -22,17 +23,17 @@
 }
 .home-foot {
   height: 15%;
+  align-items: center;
 }
 
 /* Login/ Register */
 .register-container {
-  width: 70%;
-  height: 400px;
+  width: 80%;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid grey;
   border-radius: 5px;
   margin: 50px auto;
 }
@@ -41,9 +42,19 @@
   width: 80%;
   margin: 0 auto;
 }
+.homepage-tos {
+  margin-top: 10px;
+  display: flex;
+}
+.homepage-tos input {
+  width: 10%;
+  align-self: flex-start;
+  margin: 10px;
+}
 #register {
   margin: 10px;
-  width: 100px;
+  height: 10%;
+  width: 175px;
 }
 
 /* Welcome Account Config/Setup */

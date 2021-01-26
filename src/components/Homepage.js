@@ -1,9 +1,9 @@
 import { Card, Button } from "react-bootstrap";
 
-import Login from "./Login";
-const Hp = () => {
+import Register from "./Register";
+const Homepage = () => {
   return (
-    <Card className="home-content">
+    <Card id="home-content" className="shadow-lg">
       <Card.Body className="home-seperation">
         <div className="top-content">
           <section className="home-right">
@@ -25,8 +25,11 @@ const Hp = () => {
             </Card.Text>
           </section>
         </div>
+        <div className="home-img">
+          <img src="homeimgage.jpg" alt="homepage image content" />
+        </div>
         <section className="home-left">
-          <Login />
+          <Register />
         </section>
       </Card.Body>
       <Card.Header className="home-foot">Footer Content</Card.Header>
@@ -34,4 +37,4 @@ const Hp = () => {
   );
 };
 
-export default Hp;
+export default Homepage;
