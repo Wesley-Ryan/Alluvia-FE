@@ -1,5 +1,5 @@
 import { Card, Button } from "react-bootstrap";
-
+import Logo from "../assets/img/logo2.jpg";
 import Register from "./Register";
 const Homepage = () => {
   return (
@@ -8,9 +8,9 @@ const Homepage = () => {
         <div className="top-content">
           <section className="home-right">
             <Card.Title>
-              <h1>ALLUVIA</h1>
+              <img src={Logo} alt="Alluvia Company Logo" />
             </Card.Title>
-            <Card.Text>
+            <Card.Text className="homepage-text">
               <h3>Keep track and something with savings</h3>
               <p>
                 Alluvia is here to track you subscriptions, payments ontime and
@@ -25,9 +25,7 @@ const Homepage = () => {
             </Card.Text>
           </section>
         </div>
-        <div className="home-img">
-          <img src="homeimgage.jpg" alt="homepage image content" />
-        </div>
+
         <section className="home-left">
           <Register />
         </section>
