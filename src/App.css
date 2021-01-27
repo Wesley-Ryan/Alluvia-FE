@@ -1,9 +1,14 @@
 /* Home Page */
+
+html {
+  box-sizing: border-box;
+}
 #home-content {
-  margin: 40px 50px 90px 40px;
-  height: 80vh;
   border-radius: 10px;
   font-family: "Source Sans Pro", sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 #home-content h3 {
   font-size: 40px;
@@ -19,16 +24,26 @@
 .home-seperation {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  flex-wrap: wrap;
 }
 
 .home-right {
-  width: 50%;
-  margin: 50px auto;
+  width: 45%;
+  margin: 40px;
 }
 
 .home-left {
-  width: 48%;
+  width: 45%;
+}
+.homepage-img-container {
+  width: 85%;
+  height: 500px;
+  margin: -15px auto;
+  border-radius: 10px;
+  background: url("./assets//img//alluivaIphone.jpg") no-repeat center;
+}
+#appimg {
+  height: 100%;
 }
 
 .home-foot {
@@ -38,7 +53,7 @@
 
 /* Login/ Register */
 .register-container {
-  width: 80%;
+  width: 400px;
   height: 500px;
   display: flex;
   flex-direction: column;
