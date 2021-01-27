@@ -24,12 +24,12 @@ const Homepage = () => {
               <li>no more forgotten free trials</li>
             </ul>
           </Card.Text>
+          <div className="homepage-img-container"></div>
         </section>
 
         <section className="home-left">
           <Register />
         </section>
-        <div className="homepage-img-container"></div>
       </Card.Body>
 
       <Card.Header className="home-foot">Footer Content</Card.Header>
