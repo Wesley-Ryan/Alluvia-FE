@@ -103,6 +103,30 @@ html {
   margin: 0 50px 0 0;
 }
 
+.tabbed {
+  margin: 80px 0 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.login-signup {
+  display: flex;
+  justify-content: flex-end;
+}
+#dropdown-left {
+  width: 85px;
+  font-size: 40px;
+}
+#dropdown-left::before {
+  display: none;
+}
+.tooltip-arrow {
+  display: none !important;
+}
+
+.tab {
+  border: none;
+}
+
 /* Dashboard */
 
 /* Subscription Cards */
