@@ -1,6 +1,86 @@
 /* Home Page */
 
+html {
+  box-sizing: border-box;
+}
+#home-content {
+  border-radius: 10px;
+  font-family: "Source Sans Pro", sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+#home-content h3 {
+  font-size: 40px;
+  font-weight: 900;
+}
+#home-content img {
+  height: 120px;
+}
+.homepage-text {
+  margin: 5px 0 20px 20px;
+}
+
+.home-seperation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-right {
+  width: 45%;
+  margin: 40px;
+}
+
+.home-left {
+  width: 45%;
+}
+.homepage-img-container {
+  width: 85%;
+  height: 500px;
+  margin: -15px auto;
+  border-radius: 10px;
+  background: url("./assets//img//alluivaIphone.jpg") no-repeat center;
+}
+#appimg {
+  height: 100%;
+}
+
+.home-foot {
+  height: 15%;
+  align-items: center;
+}
+
 /* Login/ Register */
+.register-container {
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  margin: 50px auto;
+}
+
+.register-container input {
+  width: 80%;
+  margin: 0 auto;
+}
+.homepage-tos {
+  margin-top: 10px;
+  display: flex;
+}
+.homepage-tos input {
+  width: 10%;
+  align-self: flex-start;
+  margin: 10px;
+}
+#register {
+  margin: 10px;
+  height: 10%;
+  width: 175px;
+}
 
 /* Welcome Account Config/Setup */
 
