@@ -113,8 +113,8 @@ html {
   justify-content: flex-end;
 }
 #dropdown-left {
-  width: 85px;
-  font-size: 40px;
+  width: 55px;
+  font-size: 30px;
 }
 #dropdown-left::before {
   display: none;

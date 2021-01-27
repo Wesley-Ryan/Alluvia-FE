@@ -9,7 +9,7 @@ const TabbedLogin = () => {
 
   return (
     <div className="login-signup">
-      {window.innerWidth < 968 ? (
+      {window.innerWidth < 768 ? (
         <DropdownButton
           variant="white"
           id="dropdown-left"
