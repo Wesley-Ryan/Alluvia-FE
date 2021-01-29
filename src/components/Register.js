@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
@@ -93,7 +94,9 @@ const Register = () => {
         <Button id="register" type="submit">
           Create Account
         </Button>
-        <p>Already registerd?(LINK)login here</p>
+        <p>
+          Already registerd?<Link to={"/account/login"}>login here</Link>
+        </p>
       </Form>
     </div>
   );
