@@ -97,6 +97,9 @@ html {
   background: #b150e2;
   border: whitesmoke;
 }
+#isInActive {
+  display: none;
+}
 
 /* Welcome Account Config/Setup */
 

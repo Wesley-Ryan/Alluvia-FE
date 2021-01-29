@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
+  const [showPWText, setShowPWTest] = useState(false);
   const { register, handleSubmit, errors, watch } = useForm({
     mode: "onBlur",
   });
@@ -76,7 +77,6 @@ const Register = () => {
           name="Email"
           ref={register({ required: true, max: 255, pattern: /^\S+@\S+$/i })}
         />
-
         <Form.Control
           type="password"
           isInvalid={errors.password ? true : false}
@@ -84,11 +84,15 @@ const Register = () => {
           name="password"
           aria-describedby="passwordHelpBlock"
           ref={register({ required: "Password is required.", max: 255 })}
+          onChange={() => setShowPWTest(true)}
         />
-        <Form.Text id="passwordHelpBlock" muted style={{ width: "80%" }}>
-          Your password must be 8-20 characters long, contain letters and
-          numbers, and must not contain spaces, special characters, or emojis.
-        </Form.Text>
+        {showPWText && (
+          <Form.Text id="passwordHelpBlock" muted style={{ width: "80%" }}>
+            Your password must be 8-20 characters long, contain letters and
+            numbers, and must not contain spaces, special characters, or emojis.
+          </Form.Text>
+        )}
+
         <Form.Control
           type="password"
           isInvalid={errors.confirmPassword ? true : false}
