@@ -62,9 +62,24 @@ html {
   margin: 50px auto;
 }
 
+.register-container img {
+  width: 75%;
+  margin: 5px 25px -15px 5px;
+}
 .register-container input {
   width: 80%;
   margin: 0 auto;
+}
+.login-container {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  margin-top: -17px;
+}
+.login-container input {
+  font-size: 15px;
 }
 .homepage-tos {
   margin-top: 10px;

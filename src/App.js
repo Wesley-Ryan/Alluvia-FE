@@ -8,7 +8,8 @@ function App() {
   return (
     <div className="App">
       <Route path="/account/login" component={() => <Login />} />
-      <Homepage />
+      <Route exact path="/" component={() => <Homepage />} />
+
       <header className="App-header"></header>
     </div>
   );
