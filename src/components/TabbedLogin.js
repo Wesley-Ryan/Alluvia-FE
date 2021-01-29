@@ -5,7 +5,7 @@ import Register from "./Register";
 import Resize from "./utils/Resize";
 
 const TabbedLogin = () => {
-  const resize = Resize();
+  const watchSize = Resize();
 
   return (
     <div className="login-signup">

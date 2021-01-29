@@ -1,10 +1,46 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
+import axios from "axios";
 
 const Register = () => {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, errors } = useForm({
+    mode: "onBlur",
+  });
+
+  const createAccount = (user) => {
+    console.log("SEE", user);
+    axios
+      .post("http://localhost:3990/account/signup", user)
+      .then((response) => {
+        alert(`Registration Successful, please login.`);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("There was an error creating the user", error);
+      });
+  };
+
+  const onSubmit = (data) => {
+    const user = {
+      first_name: data.first_name,
+      last_name: data.last_name,
+      email: data.Email,
+      password: data.password,
+      role: 5,
+    };
+    console.log("MYUSER", user);
+    axios
+      .post("http://localhost:3990/account/signup", user)
+      .then((response) => {
+        alert(`Registration Successful, please login.`);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("There was an error creating the userDD", error);
+      });
+  };
+
   console.log("ERRORS =>", errors);
 
   return (
