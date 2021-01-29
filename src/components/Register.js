@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, errors, watch } = useForm({
     mode: "onBlur",
   });
+
+  const password = useRef({});
+  password.current = watch("password", "");
 
   const createAccount = (user) => {
     console.log("SEE", user);
@@ -53,34 +56,53 @@ const Register = () => {
         <h2>Sign Up</h2>
         <Form.Control
           type="text"
+          isInvalid={errors.first_name ? true : false}
           placeholder="First Name"
           name="first_name"
           ref={register({ required: true, max: 255, maxLength: 80 })}
         />
+        <Form.Control.Feedback type="valid">You did it!</Form.Control.Feedback>
         <Form.Control
           type="text"
+          isInvalid={errors.last_name ? true : false}
           placeholder="Last Name"
           name="last_name"
           ref={register({ required: true, max: 255, maxLength: 100 })}
         />
         <Form.Control
           type="text"
+          isInvalid={errors.Email ? true : false}
           placeholder="Email"
           name="Email"
           ref={register({ required: true, max: 255, pattern: /^\S+@\S+$/i })}
         />
+
         <Form.Control
           type="password"
+          isInvalid={errors.password ? true : false}
           placeholder="Password"
           name="password"
-          ref={register({ required: true, max: 255 })}
+          aria-describedby="passwordHelpBlock"
+          ref={register({ required: "Password is required.", max: 255 })}
         />
+        <Form.Text id="passwordHelpBlock" muted style={{ width: "80%" }}>
+          Your password must be 8-20 characters long, contain letters and
+          numbers, and must not contain spaces, special characters, or emojis.
+        </Form.Text>
         <Form.Control
           type="password"
+          isInvalid={errors.confirmPassword ? true : false}
           placeholder="Confirm Password"
-          name="confirm password"
-          ref={register({ required: true, max: 255 })}
+          name="confirmPassword"
+          ref={register({
+            validate: (value) =>
+              value === password.current ||
+              "The password does not match, please correct your password.",
+          })}
         />
+        <Form.Text muted>
+          {errors.confirmPassword ? errors.confirmPassword.message : ""}
+        </Form.Text>
         <div className="homepage-tos">
           <input
             type="checkbox"
