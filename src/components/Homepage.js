@@ -1,7 +1,6 @@
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Logo from "../assets/img/logo2.jpg";
-import AppImg from "../assets/img/alluivaIphone.jpg";
-import Register from "./Register";
+import TabbedLogin from "./TabbedLogin";
 const Homepage = () => {
   return (
     <Card id="home-content" className="shadow-lg">
@@ -24,12 +23,12 @@ const Homepage = () => {
               <li>no more forgotten free trials</li>
             </ul>
           </Card.Text>
+          <div className="homepage-img-container"></div>
         </section>
 
         <section className="home-left">
-          <Register />
+          <TabbedLogin className="burger" />
         </section>
-        <div className="homepage-img-container"></div>
       </Card.Body>
 
       <Card.Header className="home-foot">Footer Content</Card.Header>

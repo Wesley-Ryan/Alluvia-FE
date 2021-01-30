@@ -1,11 +1,15 @@
 import Navigation from "./components/Navigation";
 import Homepage from "./components/Homepage";
+import Login from "./components/Login";
+import { Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Homepage />
+      <Route path="/account/login" component={() => <Login />} />
+      <Route exact path="/" component={() => <Homepage />} />
+
       <header className="App-header"></header>
     </div>
   );

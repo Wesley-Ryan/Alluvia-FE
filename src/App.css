@@ -24,7 +24,6 @@ html {
 .home-seperation {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .home-right {
@@ -36,9 +35,9 @@ html {
   width: 45%;
 }
 .homepage-img-container {
-  width: 85%;
-  height: 500px;
-  margin: -15px auto;
+  width: 100%;
+  height: 400px;
+  margin: -25px 0 0 150px;
   border-radius: 10px;
   background: url("./assets//img//alluivaIphone.jpg") no-repeat center;
 }
@@ -63,9 +62,24 @@ html {
   margin: 50px auto;
 }
 
+.register-container img {
+  width: 75%;
+  margin: 5px 25px -15px 5px;
+}
 .register-container input {
   width: 80%;
   margin: 0 auto;
+}
+.login-container {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  margin-top: -17px;
+}
+.login-container input {
+  font-size: 15px;
 }
 .homepage-tos {
   margin-top: 10px;
@@ -80,6 +94,11 @@ html {
   margin: 10px;
   height: 10%;
   width: 175px;
+  background: #b150e2;
+  border: whitesmoke;
+}
+#isInActive {
+  display: none;
 }
 
 /* Welcome Account Config/Setup */
@@ -102,6 +121,30 @@ html {
 #logo {
   height: 85px;
   margin: 0 50px 0 0;
+}
+
+.tabbed {
+  margin: 80px 0 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.login-signup {
+  display: flex;
+  justify-content: flex-end;
+}
+#dropdown-left {
+  width: 55px;
+  font-size: 30px;
+}
+#dropdown-left::before {
+  display: none;
+}
+.tooltip-arrow {
+  display: none !important;
+}
+
+.tab {
+  border: none;
 }
 
 /* Dashboard */
