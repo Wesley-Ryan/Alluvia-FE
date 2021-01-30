@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Logo from "../assets/img/logo2.jpg";
 
@@ -52,6 +53,9 @@ const Login = () => {
             ref={register({ required: true, max: 255 })}
           />
         </Form.Group>
+        <p style={{ fontSize: "12px", fontWeight: "bold" }}>
+          <Link to={"/account/login"}>Forgot Password</Link>
+        </p>
         <Button id="register" type="submit">
           Login
         </Button>
