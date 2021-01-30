@@ -4,7 +4,9 @@ import { Form, Button } from "react-bootstrap";
 import Logo from "../assets/img/logo2.jpg";
 
 const Login = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm({
+    mode: "onBlur",
+  });
   const onSubmit = (data) => console.log(data);
   console.log("ERRORS =>", errors);
 
@@ -20,6 +22,7 @@ const Login = () => {
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="text"
+            isInvalid={errors.Email ? true : false}
             placeholder="Email"
             name="Email"
             ref={register({ required: true, max: 255, pattern: /^\S+@\S+$/i })}
@@ -29,6 +32,7 @@ const Login = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
+            isInvalid={errors.password ? true : false}
             placeholder="password"
             name="password"
             ref={register({ required: true, max: 255 })}
