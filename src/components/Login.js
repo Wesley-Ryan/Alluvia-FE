@@ -1,13 +1,27 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
+import axios from "axios";
 import Logo from "../assets/img/logo2.jpg";
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const user = {
+      email: data.Email,
+      password: data.password,
+    };
+    axios
+      .post("http://localhost:3990/account/login", user)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("Incorrect Password", error.message);
+      });
+  };
   console.log("ERRORS =>", errors);
 
   return (
