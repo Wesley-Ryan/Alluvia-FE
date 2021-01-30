@@ -13,19 +13,6 @@ const Register = () => {
   const password = useRef({});
   password.current = watch("password", "");
 
-  const createAccount = (user) => {
-    console.log("SEE", user);
-    axios
-      .post("http://localhost:3990/account/signup", user)
-      .then((response) => {
-        alert(`Registration Successful, please login.`);
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log("There was an error creating the user", error);
-      });
-  };
-
   const onSubmit = (data) => {
     const user = {
       first_name: data.first_name,
