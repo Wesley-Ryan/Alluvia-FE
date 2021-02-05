@@ -3,16 +3,13 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import { UserContext, defaultUser } from "./utils/userContext";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <UserContext.Provider value={defaultUser}>
-        <App />
-      </UserContext.Provider>
+      <App />
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

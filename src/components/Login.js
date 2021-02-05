@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Logo from "../assets/img/logo2.jpg";
 
-const Login = () => {
-  const defaultUser = useContext(UserContext);
+const Login = (props) => {
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
   });
@@ -20,7 +20,7 @@ const Login = () => {
       .post("http://localhost:3990/account/login", user)
       .then((response) => {
         console.log(response);
-        console.log("MY CONTEXT", defaultUser); // update userContext, set token
+        console.log("MY CONTEXT", loggedInUser); // update userContext, set token
       })
       .catch((error) => {
         console.log("Incorrect Password", error.message);
