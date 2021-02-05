@@ -17,7 +17,7 @@ const Login = () => {
     axios
       .post("http://localhost:3990/account/login", user)
       .then((response) => {
-        console.log(response);
+        console.log(response); // update userContext, set token
       })
       .catch((error) => {
         console.log("Incorrect Password", error.message);
