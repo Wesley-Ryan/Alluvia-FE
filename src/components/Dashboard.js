@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import { UserContext } from "../utils/userContext";
 import Navigation from "./Navigation";
 
 const Dashboard = () => {
-  //state or context?
+  const { loggedInUser } = useContext(UserContext);
+
   useEffect(() => {
     //call to pull user subs here
   }, []);
+  console.log(loggedInUser);
   return (
     <div>
       <Navigation />
-      Something here.
+      <h1>{loggedInUser.message}</h1>
     </div>
   );
 };
