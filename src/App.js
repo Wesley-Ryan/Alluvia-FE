@@ -8,11 +8,7 @@ import { Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({
-    message: "Welcome Default User",
-    username: "",
-    userId: 0,
-  });
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <div className="App">
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>

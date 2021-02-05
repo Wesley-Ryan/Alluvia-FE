@@ -19,7 +19,10 @@ const Login = (props) => {
     axios
       .post("http://localhost:3990/account/login", user)
       .then((response) => {
+        setLoggedInUser(response.data);
         console.log(response);
+      })
+      .then((response) => {
         console.log("MY CONTEXT", loggedInUser); // update userContext, set token
       })
       .catch((error) => {
