@@ -16,10 +16,7 @@ const TabbedLogin = () => {
           title="|||"
           drop="left"
         >
-          <Dropdown.Item href="#/action-1">
-            <Register />
-          </Dropdown.Item>
-          <Dropdown.Item href="#/action-2"></Dropdown.Item>
+          <Register />
         </DropdownButton>
       ) : (
         <Register />

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../utils/userContext";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -6,6 +7,7 @@ import axios from "axios";
 import Logo from "../assets/img/logo2.jpg";
 
 const Login = () => {
+  const defaultUser = useContext(UserContext);
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
   });
@@ -18,6 +20,7 @@ const Login = () => {
       .post("http://localhost:3990/account/login", user)
       .then((response) => {
         console.log(response);
+        console.log("MY CONTEXT", defaultUser); // update userContext, set token
       })
       .catch((error) => {
         console.log("Incorrect Password", error.message);
