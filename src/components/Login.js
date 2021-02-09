@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
-import { UserContext } from "../utils/userContext";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import Logo from "../assets/img/logo2.jpg";
 
 const Login = (props) => {
-  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+  const successful = useHistory();
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
   });
@@ -19,11 +18,9 @@ const Login = (props) => {
     axios
       .post("http://localhost:3990/account/login", user)
       .then((response) => {
-        setLoggedInUser(response.data);
-        console.log(response);
-      })
-      .then((response) => {
-        console.log("MY CONTEXT", loggedInUser); // update userContext, set token
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("alluvia", response.data.id);
+        successful.push(`/user/${response.data.id}`);
       })
       .catch((error) => {
         console.log("Incorrect Password", error.message);
