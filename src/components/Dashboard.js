@@ -1,18 +1,31 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { UserContext } from "../utils/userContext";
 import Navigation from "./Navigation";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const Dashboard = () => {
-  const { loggedInUser } = useContext(UserContext);
+  const u_id = localStorage.getItem("alluvia");
+  const [user, setUser] = useState();
 
   useEffect(() => {
-    //call to pull user subs here
+    axiosWithAuth()
+      .get(`http://localhost:3990/users/${u_id}`)
+      .then((response) => {
+        setUser(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(
+          "There was an error retreving the data from the server",
+          error
+        );
+      });
   }, []);
-  console.log(loggedInUser);
+
   return (
     <div>
-      <Navigation />
-      <h1>{loggedInUser.message}</h1>
+      <Navigation user={user} />
+      <h1>Hello {user.first_name}</h1>
     </div>
   );
 };
