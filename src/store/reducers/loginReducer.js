@@ -1,18 +1,17 @@
-import { LOG_IN_USER, LOG_OUT_USER } from "../utils/reduxVariables";
+import { LOG_USER_IN, LOG_USER_OUT } from "../reduxVariables";
 
 const initialState = {
-  //create defaultUser
+  loggedIn: false,
 };
 
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOG_IN_USER:
+    case LOG_USER_IN:
       return {
         ...state,
         loggedIn: true,
-        //build user from payload
       };
-    case LOG_OUT_USER:
+    case LOG_USER_OUT:
       return {
         ...state,
         loggedIn: false,

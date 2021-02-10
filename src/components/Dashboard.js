@@ -8,9 +8,9 @@ const Dashboard = () => {
   const u_id = localStorage.getItem("alluvia");
   const [user, setUser] = useState(defaultUser);
 
-  useEffect(async () => {
-    await axiosWithAuth()
-      .get(`http://localhost:3990/users/7`)
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`http://localhost:3990/users/${u_id}`)
       .then((response) => {
         console.log("MY RES HERE", response.data);
         setUser(response.data);
@@ -26,9 +26,9 @@ const Dashboard = () => {
   return (
     <div>
       <Navigation />
-      {user.subscriptions.map((sub) => {
+      {user.subscriptions.map((sub, i) => {
         return (
-          <div>
+          <div key={i}>
             <h2>{sub.name}</h2>
           </div>
         );

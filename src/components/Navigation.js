@@ -6,7 +6,7 @@ const Navigation = (props) => {
   return (
     <Navbar expand="lg" sticky="top" className="styled-nav">
       <Navbar.Brand href="#home">
-        <img src={Logo} id="logo" />
+        <img src={Logo} id="logo" alt="alluvia-logo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
