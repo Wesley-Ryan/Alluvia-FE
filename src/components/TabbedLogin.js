@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { Dropdown, DropdownType, DropdownButton } from "react-bootstrap";
-import Login from "./Login";
+import { DropdownButton } from "react-bootstrap";
 import Register from "./Register";
 import Resize from "./utils/Resize";
 

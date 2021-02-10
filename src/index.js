@@ -1,20 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import { createStore, applyMiddleware } from "redux";
+import { rootReducer } from "./reducers/index";
+
 import "./index.css";
 import App from "./App";
-import { UserContext, defaultUser } from "./utils/userContext";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <Router>
-      <UserContext.Provider value={defaultUser}>
-        <App />
-      </UserContext.Provider>
+      <App />
     </Router>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
 
