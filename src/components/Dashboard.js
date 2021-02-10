@@ -1,38 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "./Navigation";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchUser } from "../store/actions/userActions";
+import { userReducer } from "../store/reducers/userReducer";
 const defaultUser = {
   subscriptions: [],
 };
 const Dashboard = () => {
   const u_id = localStorage.getItem("alluvia");
-  const [user, setUser] = useState(defaultUser);
+  const dispatch = useDispatch();
+  const userState = useSelector((state) => state.initialUserState);
 
   useEffect(() => {
-    axiosWithAuth()
-      .get(`http://localhost:3990/users/${u_id}`)
-      .then((response) => {
-        console.log("MY RES HERE", response.data);
-        setUser(response.data);
-      })
-      .catch((error) => {
-        console.log(
-          "There was an error retreving the data from the server",
-          error
-        );
-      });
+    dispatch(fetchUser(u_id));
   }, []);
 
   return (
     <div>
       <Navigation />
-      {user.subscriptions.map((sub, i) => {
-        return (
-          <div key={i}>
-            <h2>{sub.name}</h2>
-          </div>
-        );
-      })}
+      {console.log(userState)}
     </div>
   );
 };
