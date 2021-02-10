@@ -1,7 +1,7 @@
 import { LOG_IN_USER, LOG_OUT_USER } from "../utils/reduxVariables";
 
 const initialState = {
-  loggedIn: false,
+  //create defaultUser
 };
 
 export const loginReducer = (state = initialState, action) => {
@@ -10,6 +10,7 @@ export const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         loggedIn: true,
+        //build user from payload
       };
     case LOG_OUT_USER:
       return {

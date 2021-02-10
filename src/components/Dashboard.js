@@ -8,7 +8,9 @@ const Dashboard = () => {
   useEffect(() => {
     axiosWithAuth()
       .get(`http://localhost:3990/users/7`)
-      .then((response) => {})
+      .then((response) => {
+        console.log("MY RES HERE", response.data);
+      })
       .catch((error) => {
         console.log(
           "There was an error retreving the data from the server",
