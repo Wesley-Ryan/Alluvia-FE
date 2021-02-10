@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { UserContext } from "./utils/userContext";
-import Navigation from "./components/Navigation";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
@@ -8,14 +6,11 @@ import { Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <div className="App">
-      <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
-        <Route path="/account/login" component={() => <Login />} />
-        <Route exact path="/" component={() => <Homepage />} />
-        <Route exact path="/user/:id" component={() => <Dashboard />} />
-      </UserContext.Provider>
+      <Route path="/account/login" component={() => <Login />} />
+      <Route exact path="/" component={() => <Homepage />} />
+      <Route exact path="/user/:id" component={() => <Dashboard />} />
 
       <header className="App-header"></header>
     </div>
