@@ -169,7 +169,7 @@ html {
 
 .due-date {
   color: red;
-  border: 1px solid pink;
+  text-align: center;
 }
 #card-img {
   border-radius: 100%;
@@ -178,6 +178,8 @@ html {
 .title {
   margin: 0 auto;
   align-self: center;
+  font-size: 50px;
+  padding: 10px;
 }
 .cost-container {
   display: flex;
