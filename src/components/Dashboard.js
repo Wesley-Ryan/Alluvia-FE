@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Navigation from "./Navigation";
+import SubscriptionCard from "./SubscriptionCard";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUser } from "../store/actions/userActions";
 
@@ -15,6 +16,7 @@ const Dashboard = () => {
   return (
     <div>
       <Navigation user={userState} />
+      <SubscriptionCard />
     </div>
   );
 };

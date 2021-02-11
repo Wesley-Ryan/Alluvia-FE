@@ -151,6 +151,44 @@ html {
 
 /* Subscription Cards */
 
+.sub-card {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 75%;
+  height: 175px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 1%;
+  box-shadow: 0 8px 9px -6px grey;
+}
+
+.title-container {
+  display: flex;
+  padding: 1px;
+}
+
+.due-date {
+  color: red;
+  border: 1px solid pink;
+}
+#card-img {
+  border-radius: 100%;
+  width: 12%;
+}
+.title {
+  margin: 0 auto;
+  align-self: center;
+}
+.cost-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.cost-container h4 {
+  font-size: 20px;
+}
 /* Add Card Form */
 
 /* Edit User Account */
