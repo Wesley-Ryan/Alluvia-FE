@@ -1,25 +1,20 @@
 import React, { useEffect } from "react";
 import Navigation from "./Navigation";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchUser } from "../store/actions/userActions";
 
 const Dashboard = () => {
   const u_id = localStorage.getItem("alluvia");
+  const dispatch = useDispatch();
+  const userState = useSelector((state) => state.userReducer);
 
   useEffect(() => {
-    axiosWithAuth()
-      .get(`http://localhost:3990/users/7`)
-      .then((response) => {})
-      .catch((error) => {
-        console.log(
-          "There was an error retreving the data from the server",
-          error
-        );
-      });
+    dispatch(fetchUser(u_id));
   }, []);
 
   return (
     <div>
-      <Navigation />
+      <Navigation user={userState} />
     </div>
   );
 };

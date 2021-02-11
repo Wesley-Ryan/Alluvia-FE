@@ -2,11 +2,14 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLoggedIn } from "../store/actions/loginActions";
 import axios from "axios";
 import Logo from "../assets/img/logo2.jpg";
 
 const Login = (props) => {
   const successful = useHistory();
+  const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
   });
@@ -20,6 +23,7 @@ const Login = (props) => {
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("alluvia", response.data.id);
+        dispatch(setLoggedIn);
         successful.push(`/user/${response.data.id}`);
       })
       .catch((error) => {
