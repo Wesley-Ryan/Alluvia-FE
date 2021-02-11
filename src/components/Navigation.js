@@ -3,6 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import Logo from "../assets/img/logo.jpg";
 
 const Navigation = (props) => {
+  const { user } = props;
   return (
     <Navbar expand="lg" sticky="top" className="styled-nav">
       <Navbar.Brand href="#home">
@@ -21,7 +22,7 @@ const Navigation = (props) => {
           <Navbar.Text id="nav-text">
             Signed in as:
             <a href="#login" id="nav-text">
-              Name Holder
+              {user.first_name}
             </a>
           </Navbar.Text>
         </Nav>

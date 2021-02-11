@@ -9,7 +9,7 @@ const defaultUser = {
 const Dashboard = () => {
   const u_id = localStorage.getItem("alluvia");
   const dispatch = useDispatch();
-  const userState = useSelector((state) => state.initialUserState);
+  const userState = useSelector((state) => state.userReducer);
 
   useEffect(() => {
     dispatch(fetchUser(u_id));
@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Navigation />
+      <Navigation user={userState} />
       {console.log(userState)}
     </div>
   );
