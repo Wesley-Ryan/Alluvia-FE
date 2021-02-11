@@ -1,4 +1,4 @@
-import { FETCH_USER_FAILURE, FETCH_USER_SUCCESS } from "../reduxVariables";
+import { FETCH_USER_SUCCESS } from "../reduxVariables";
 
 const initialUserState = {
   email: "",
