@@ -16,7 +16,9 @@ const Dashboard = () => {
   return (
     <div>
       <Navigation user={userState} />
-      <SubscriptionCard />
+      <section className="dashboard">
+        <SubscriptionCard />
+      </section>
     </div>
   );
 };
