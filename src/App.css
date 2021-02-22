@@ -189,6 +189,7 @@ html {
 }
 .card-section p {
   align-self: center;
+  font-size: 13px;
 }
 .counter {
   width: 10%;

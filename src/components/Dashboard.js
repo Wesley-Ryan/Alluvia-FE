@@ -17,7 +17,9 @@ const Dashboard = () => {
     <div>
       <Navigation user={userState} />
       <section className="dashboard">
-        <SubscriptionCard />
+        {userState.subscriptions.map((subscription, index) => {
+          return <SubscriptionCard subscription={subscription} key={index} />;
+        })}
       </section>
     </div>
   );
