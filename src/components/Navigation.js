@@ -13,16 +13,16 @@ const Navigation = (props) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="nav-text">
           <Nav.Link id="nav-text" href="#home">
-            Dashboard
+            Add New Subscription
           </Nav.Link>
           <Nav.Link id="nav-text" href="#link" className="align-bottom">
-            Account
+            Profile
           </Nav.Link>
 
           <Navbar.Text id="nav-text">
             Signed in as:
             <a href="#login" id="nav-text">
-              {user.first_name}
+              {` ${user.first_name}`}
             </a>
           </Navbar.Text>
         </Nav>

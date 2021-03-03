@@ -109,9 +109,13 @@ html {
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+  font-family: "Poppins", sans-serif;
 }
 #nav-text {
   color: #b150e2;
+}
+#nav-text:hover {
+  color: #68049b;
 }
 #logo {
   height: 85px;
