@@ -94,7 +94,7 @@ html {
   margin: 10px;
   height: 10%;
   width: 175px;
-  background: #b150e2;
+  background: #a355ca;
   border: whitesmoke;
 }
 #isInActive {
@@ -223,4 +223,48 @@ html {
 }
 /* Add Card Form */
 
+.addsub-container {
+  max-width: 1080px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.addsub-container h2 {
+  text-align: center;
+  margin: 5px;
+}
+.addsub-container img {
+  width: 40%;
+  align-self: center;
+  border: 1px solid grey;
+  margin: 10px 10px;
+}
+.addsub-container input {
+  width: 70%;
+  margin: 10px 10px;
+}
+#add-sub-text {
+  width: 35%;
+}
+.upload-img-controls {
+  display: flex;
+  justify-content: space-around;
+}
+#cancel {
+  margin: 10px;
+  height: 10%;
+  width: 175px;
+  background: #eb5a62;
+  border: whitesmoke;
+}
+.addsub-cost {
+  display: flex;
+  justify-content: space-between;
+}
+.form-container {
+  padding: 2%;
+  width: 80%;
+  margin: 0 auto;
+}
 /* Edit User Account */
