@@ -104,11 +104,6 @@ html {
 /* Welcome Account Config/Setup */
 
 /* Navigation */
-.styled-nav {
-  background-color: #b150e2;
-  color: whitesmoke;
-}
-
 .nav-text {
   width: 100%;
   display: flex;
@@ -116,7 +111,7 @@ html {
   margin-top: 50px;
 }
 #nav-text {
-  color: whitesmoke;
+  color: #b150e2;
 }
 #logo {
   height: 85px;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import Logo from "../assets/img/logo.jpg";
+import Logo from "../assets/img/logo2.jpg";
 
 const Navigation = (props) => {
   const { user } = props;
