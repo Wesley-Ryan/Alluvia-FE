@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css, jsx } from "@emotion/react";
 import Logo from "../assets/img/logo2.jpg";
+import RegistrationForm from "./RegistrationForm";
 
 const Homepage = () => {
   return (
