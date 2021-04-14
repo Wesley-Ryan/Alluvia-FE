@@ -5,10 +5,11 @@ import RegistrationForm from "./RegistrationForm";
 
 const Homepage = () => {
   return (
-    <div style={{ display: `flex`, justifyContent: `center` }}>
+    <div
+      style={{ display: `flex`, justifyContent: `center`, flexWrap: `wrap` }}
+    >
       <div
         css={css`
-          border: 1px solid grey;
           height: 90vh;
           border-radius: 10px;
           font-family: "Source Sans Pro", sans-serif;
@@ -16,14 +17,21 @@ const Homepage = () => {
           margin: 14px;
           display: flex;
           justify-content: center;
+          -webkit-box-shadow: 3px 3px 5px 5px #ccc;
+          -moz-box-shadow: 3px 3px 5px 5px #ccc;
         `}
       >
         <section
           css={css`
-            width: 45%;
+            width: 50%;
           `}
         >
-          <img src={Logo} />
+          <img
+            src={Logo}
+            css={css`
+              width: 50%;
+            `}
+          />
           <h2>Don't be caught in the dark...</h2>
           <article>
             <p>
@@ -41,11 +49,13 @@ const Homepage = () => {
         </section>
         <section
           css={css`
-            width: 45%;
+            width: 30%;
+            margin: 0 50px;
           `}
         >
           <RegistrationForm />
         </section>
+        <div>hello</div>
       </div>
     </div>
   );

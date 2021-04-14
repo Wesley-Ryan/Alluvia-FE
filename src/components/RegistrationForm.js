@@ -29,7 +29,6 @@ const RegistrationForm = () => {
       css={css`
         height: 500px;
         width: 350px;
-        border: 1px grey solid;
         margin-top: 80px;
         display: flex;
         justify-content: center;
@@ -43,7 +42,9 @@ const RegistrationForm = () => {
           display: flex;
           justify-content: center;
           flex-direction: column;
-          box-shadow: 0 8px 9px -6px grey;
+          -webkit-box-shadow: 3px 3px 5px 5px #ccc;
+          -moz-box-shadow: 3px 3px 5px 5px #ccc;
+          box-shadow: 3px 3px 5px 5px #ccc;
         `}
       >
         <h2
@@ -101,18 +102,25 @@ const RegistrationForm = () => {
               required: true,
             })}
           />
-          <p>I agree to the terms of service</p>
+          <p
+            css={css`
+              font-size: 13px;
+            `}
+          >
+            I agree to the terms of service
+          </p>
         </div>
 
         <button
           css={css`
-            width: 160px;
+            width: 175px;
             align-self: center;
-            padding: 10px;
+            padding: 12px;
             background-color: #b150e2;
-            font-size: 25px;
+            font-size: 20px;
             border-radius: 4px;
-            color: black;
+            border: none;
+            color: white;
             font-weight: bold;
             &:hover {
               color: white;
@@ -120,7 +128,7 @@ const RegistrationForm = () => {
           `}
           type="submit"
         >
-          Submit
+          Create Account
         </button>
         <p
           css={css`
