@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Logo from "../assets/img/logo2.jpg";
 
 const Input = styled.input`
   height: 40px;
@@ -15,7 +16,7 @@ const Input = styled.input`
   align-self: center;
 `;
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const {
     register,
     handleSubmit,
@@ -29,6 +30,7 @@ const RegistrationForm = () => {
       css={css`
         height: 500px;
         width: 350px;
+        margin: 0 auto;
         margin-top: 80px;
         display: flex;
         justify-content: center;
@@ -47,24 +49,23 @@ const RegistrationForm = () => {
           box-shadow: 3px 3px 5px 5px #ccc;
         `}
       >
+        <img
+          src={Logo}
+          alt="Alluvia Logo"
+          css={css`
+            width: 75%;
+            margin: 0 auto;
+          `}
+        />
         <h2
           css={css`
             margin: 0 auto;
+            margin-top: 20px;
             font-size: 30px;
           `}
         >
-          Sign Up
+          Login
         </h2>
-        <Input
-          type="text"
-          placeholder="First name"
-          {...register("First name", { required: true, maxLength: 80 })}
-        />
-        <Input
-          type="text"
-          placeholder="Last name"
-          {...register("Last name", { required: true, maxLength: 100 })}
-        />
         <Input
           type="text"
           placeholder="Email"
@@ -75,41 +76,6 @@ const RegistrationForm = () => {
           placeholder="Password"
           {...register("Password", { max: 128, min: 8, maxLength: 128 })}
         />
-        <Input
-          type="text"
-          placeholder="Confirm Password"
-          {...register("Confirm Password", {
-            required: true,
-            max: 128,
-            min: 8,
-            maxLength: 128,
-          })}
-        />
-        <div
-          css={css`
-            display: flex;
-            justify-content: center;
-          `}
-        >
-          <input
-            css={css`
-              align-self: center;
-              margin: 8px;
-            `}
-            type="checkbox"
-            name="terms"
-            ref={register({
-              required: true,
-            })}
-          />
-          <p
-            css={css`
-              font-size: 13px;
-            `}
-          >
-            I agree to the terms of service
-          </p>
-        </div>
 
         <button
           css={css`
@@ -122,24 +88,22 @@ const RegistrationForm = () => {
             border: none;
             color: white;
             font-weight: bold;
-            &:hover {
-              color: white;
-            }
+            margin-top: 20px;
           `}
           type="submit"
         >
-          Create Account
+          Login
         </button>
         <p
           css={css`
             align-self: center;
           `}
         >
-          Already registerd? <Link to={"/account/login"}>login here!</Link>
+          Still New? <Link to={"/"}>Sign Up Here!</Link>
         </p>
       </form>
     </div>
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;

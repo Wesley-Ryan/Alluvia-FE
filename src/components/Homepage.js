@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css, jsx } from "@emotion/react";
+import { css } from "@emotion/react";
 import Logo from "../assets/img/logo2.jpg";
 import RegistrationForm from "./RegistrationForm";
 
@@ -28,6 +28,7 @@ const Homepage = () => {
         >
           <img
             src={Logo}
+            alt="logo"
             css={css`
               width: 50%;
             `}
@@ -51,7 +52,7 @@ const Homepage = () => {
             css={css`
         width: 93%;
         height: 400px;
-        margin: -10px 0 0 50px;
+        margin: -15px 0 0 50px;
         border-radius: 10px;
       }`}
           ></div>
