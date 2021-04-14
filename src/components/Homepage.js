@@ -10,7 +10,7 @@ const Homepage = () => {
     >
       <div
         css={css`
-          height: 90vh;
+          height: 95vh;
           border-radius: 10px;
           font-family: "Source Sans Pro", sans-serif;
           width: 1200px;
@@ -46,16 +46,24 @@ const Homepage = () => {
               <li>No more missed lunch on a forgotten free trial</li>
             </ul>
           </article>
+          <div
+            id="homepage-image"
+            css={css`
+        width: 93%;
+        height: 400px;
+        margin: -10px 0 0 50px;
+        border-radius: 10px;
+      }`}
+          ></div>
         </section>
         <section
           css={css`
-            width: 30%;
+            width: 25%;
             margin: 0 50px;
           `}
         >
           <RegistrationForm />
         </section>
-        <div>hello</div>
       </div>
     </div>
   );
