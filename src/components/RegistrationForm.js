@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
+import axios from "axios";
 const Input = styled.input`
   height: 40px;
   width: 75%;
@@ -26,7 +26,26 @@ const RegistrationForm = () => {
   const password = useRef({});
   password.current = watch("password", "");
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const user = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.Email,
+      password: data.password,
+      role: 5,
+    };
+    console.log("MYUSER", user);
+    axios
+      .post("http://localhost:3990/account/signup", user)
+      .then((response) => {
+        alert(`Registration Successful, please login.`);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("There was an error creating the userDD", error);
+      });
+  };
+
   console.log("ERRORS =>", errors);
 
   return (
