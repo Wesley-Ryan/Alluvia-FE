@@ -32,6 +32,7 @@ const RegistrationForm = () => {
       last_name: data.lastName,
       email: data.email,
       password: data.password,
+      role: 5,
     };
     console.log("MYUSER", user);
     axios
