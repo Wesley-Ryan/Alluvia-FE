@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-
+import { useRef, useState } from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
@@ -15,14 +15,21 @@ const Input = styled.input`
   align-self: center;
 `;
 
+const InputErrorMessage = styled.p`
+  margin: 0 auto;
+  color: red;
+`;
+
 const RegistrationForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const [showPWText, setShowPWTest] = useState(false);
+  const { register, handleSubmit, errors, watch } = useForm({
+    mode: "onBlur",
+  });
+  const password = useRef({});
+  password.current = watch("password", "");
+
   const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  console.log("ERRORS =>", errors);
 
   return (
     <div
@@ -56,10 +63,21 @@ const RegistrationForm = () => {
           Sign Up
         </h2>
         <Input
+          style={{
+            border: errors.firstName ? "1px solid red" : "1px solid grey",
+          }}
           type="text"
-          placeholder="First name"
-          {...register("First name", { required: true, maxLength: 80 })}
+          placeholder="First Name"
+          name="firstName"
+          ref={register({
+            required: "First Name is required",
+            max: 255,
+            maxLength: 80,
+          })}
         />
+        {errors.firstName && (
+          <InputErrorMessage>First name is required</InputErrorMessage>
+        )}
         <Input
           type="text"
           placeholder="Last name"
