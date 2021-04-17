@@ -11,7 +11,6 @@ const Input = styled.input`
   font-size: 14px;
   margin: 8px;
   border-radius: 5px;
-  border: 1px solid grey;
   align-self: center;
 `;
 
@@ -21,7 +20,6 @@ const InputErrorMessage = styled.p`
 `;
 
 const RegistrationForm = () => {
-  const [showPWText, setShowPWTest] = useState(false);
   const { register, handleSubmit, errors, watch } = useForm({
     mode: "onBlur",
   });
@@ -70,7 +68,7 @@ const RegistrationForm = () => {
           placeholder="First Name"
           name="firstName"
           ref={register({
-            required: "First Name is required",
+            required: true,
             max: 255,
             maxLength: 80,
           })}
@@ -79,30 +77,61 @@ const RegistrationForm = () => {
           <InputErrorMessage>First name is required</InputErrorMessage>
         )}
         <Input
+          style={{
+            border: errors.lastName ? "1px solid red" : "1px solid grey",
+          }}
           type="text"
           placeholder="Last name"
-          {...register("Last name", { required: true, maxLength: 100 })}
-        />
-        <Input
-          type="text"
-          placeholder="Email"
-          {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
-        />
-        <Input
-          type="text"
-          placeholder="Password"
-          {...register("Password", { max: 128, min: 8, maxLength: 128 })}
-        />
-        <Input
-          type="text"
-          placeholder="Confirm Password"
-          {...register("Confirm Password", {
+          name="lastName"
+          ref={register({
             required: true,
-            max: 128,
-            min: 8,
-            maxLength: 128,
+            max: 255,
+            maxLength: 80,
           })}
         />
+        {errors.lastName && (
+          <InputErrorMessage>Last name is required</InputErrorMessage>
+        )}
+        <Input
+          style={{
+            border: errors.email ? "1px solid red" : "1px solid grey",
+          }}
+          type="text"
+          placeholder="Email"
+          name="email"
+          ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+        />
+        {errors.email && (
+          <InputErrorMessage>Valid Email is required</InputErrorMessage>
+        )}
+        <Input
+          style={{
+            border: errors.password ? "1px solid red" : "1px solid grey",
+          }}
+          type="password"
+          placeholder="Password"
+          name="password"
+          ref={register({ max: 128, min: 8, maxLength: 128 })}
+        />
+
+        <Input
+          style={{
+            border: errors.passwordConfirmation
+              ? "1px solid red"
+              : "1px solid grey",
+          }}
+          type="password"
+          placeholder="Confirm Password"
+          name="passwordConfirmation"
+          ref={register({
+            validate: (value) => value === password.current,
+          })}
+        />
+        {errors.passwordConfirmation && (
+          <InputErrorMessage>
+            Confirmation Password does not match.
+          </InputErrorMessage>
+        )}
         <div
           css={css`
             display: flex;
@@ -128,7 +157,11 @@ const RegistrationForm = () => {
             I agree to the terms of service
           </p>
         </div>
-
+        {errors.terms && (
+          <InputErrorMessage>
+            You must accept terms of service to proceed.
+          </InputErrorMessage>
+        )}
         <button
           css={css`
             width: 175px;
