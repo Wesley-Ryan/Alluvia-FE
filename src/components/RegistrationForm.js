@@ -1,28 +1,51 @@
 /** @jsxImportSource @emotion/react */
-
+import { useRef, useState } from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
+import axios from "axios";
 const Input = styled.input`
   height: 40px;
   width: 75%;
   font-size: 14px;
   margin: 8px;
   border-radius: 5px;
-  border: 1px solid grey;
   align-self: center;
 `;
 
+const InputErrorMessage = styled.p`
+  margin: 0 auto;
+  color: red;
+`;
+
 const RegistrationForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const { register, handleSubmit, errors, watch } = useForm({
+    mode: "onBlur",
+  });
+  const password = useRef({});
+  password.current = watch("password", "");
+
+  const onSubmit = (data) => {
+    const user = {
+      first_name: data.firstName,
+      last_name: data.lastName,
+      email: data.email,
+      password: data.password,
+    };
+    console.log("MYUSER", user);
+    axios
+      .post("http://localhost:3990/account/signup", user)
+      .then((response) => {
+        alert(`Registration Successful, please login.`);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("There was an error creating the userDD", error);
+      });
+  };
+
+  console.log("ERRORS =>", errors);
 
   return (
     <div
@@ -56,35 +79,77 @@ const RegistrationForm = () => {
           Sign Up
         </h2>
         <Input
+          style={{
+            border: errors.firstName ? "1px solid red" : "1px solid grey",
+          }}
           type="text"
-          placeholder="First name"
-          {...register("First name", { required: true, maxLength: 80 })}
-        />
-        <Input
-          type="text"
-          placeholder="Last name"
-          {...register("Last name", { required: true, maxLength: 100 })}
-        />
-        <Input
-          type="text"
-          placeholder="Email"
-          {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
-        />
-        <Input
-          type="text"
-          placeholder="Password"
-          {...register("Password", { max: 128, min: 8, maxLength: 128 })}
-        />
-        <Input
-          type="text"
-          placeholder="Confirm Password"
-          {...register("Confirm Password", {
+          placeholder="First Name"
+          name="firstName"
+          ref={register({
             required: true,
-            max: 128,
-            min: 8,
-            maxLength: 128,
+            max: 255,
+            maxLength: 80,
           })}
         />
+        {errors.firstName && (
+          <InputErrorMessage>First name is required</InputErrorMessage>
+        )}
+        <Input
+          style={{
+            border: errors.lastName ? "1px solid red" : "1px solid grey",
+          }}
+          type="text"
+          placeholder="Last name"
+          name="lastName"
+          ref={register({
+            required: true,
+            max: 255,
+            maxLength: 80,
+          })}
+        />
+        {errors.lastName && (
+          <InputErrorMessage>Last name is required</InputErrorMessage>
+        )}
+        <Input
+          style={{
+            border: errors.email ? "1px solid red" : "1px solid grey",
+          }}
+          type="text"
+          placeholder="Email"
+          name="email"
+          ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+        />
+        {errors.email && (
+          <InputErrorMessage>Valid Email is required</InputErrorMessage>
+        )}
+        <Input
+          style={{
+            border: errors.password ? "1px solid red" : "1px solid grey",
+          }}
+          type="password"
+          placeholder="Password"
+          name="password"
+          ref={register({ max: 128, min: 8, maxLength: 128 })}
+        />
+
+        <Input
+          style={{
+            border: errors.passwordConfirmation
+              ? "1px solid red"
+              : "1px solid grey",
+          }}
+          type="password"
+          placeholder="Confirm Password"
+          name="passwordConfirmation"
+          ref={register({
+            validate: (value) => value === password.current,
+          })}
+        />
+        {errors.passwordConfirmation && (
+          <InputErrorMessage>
+            Confirmation Password does not match.
+          </InputErrorMessage>
+        )}
         <div
           css={css`
             display: flex;
@@ -110,7 +175,11 @@ const RegistrationForm = () => {
             I agree to the terms of service
           </p>
         </div>
-
+        {errors.terms && (
+          <InputErrorMessage>
+            You must accept terms of service to proceed.
+          </InputErrorMessage>
+        )}
         <button
           css={css`
             width: 175px;

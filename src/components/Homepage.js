@@ -44,7 +44,7 @@ const Homepage = () => {
               <li>Never miss a payment</li>
               <li>Track your spending</li>
               <li>Save time and money</li>
-              <li>No more missed lunch on a forgotten free trial</li>
+              <li>No more missed lunches on a forgotten free trial</li>
             </ul>
           </article>
           <div
