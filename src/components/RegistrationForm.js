@@ -20,7 +20,7 @@ const InputErrorMessage = styled.p`
 `;
 
 const RegistrationForm = () => {
-  const { register, handleSubmit, errors, watch } = useForm({
+  const { register, handleSubmit, errors, watch, reset } = useForm({
     mode: "onBlur",
   });
   const password = useRef({});
@@ -39,14 +39,12 @@ const RegistrationForm = () => {
       .post("http://localhost:3990/account/signup", user)
       .then((response) => {
         alert(`Registration Successful, please login.`);
-        console.log(response);
+        reset();
       })
       .catch((error) => {
         console.log("There was an error creating the userDD", error);
       });
   };
-
-  console.log("ERRORS =>", errors);
 
   return (
     <div
